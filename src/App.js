@@ -1,23 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Create from './Components/Create';
+import { useState } from 'react';
+import Context from './Context/Context';
+import { Routes,Route } from 'react-router-dom';
+import List from './Components/List';
+import Display from './Components/Display';
 function App() {
+
+  
+  const[createText,setCreateText]=useState('')
+ 
+const state={
+  text:createText,
+  setText:setCreateText
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <Context.Provider value={state}>
+    <Routes>
+    <Route path='/' element={<Create/>} />
+    <Route path='/list' element={<List/>} />
+    <Route path='/list/:id' element={<Display/>} />
+
+    </Routes>
+
+
+</Context.Provider>
+
     </div>
   );
 }
