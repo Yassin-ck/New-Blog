@@ -10,19 +10,23 @@ const List = () => {
   return (
     <div>
       <ul>
-       
-        {data.text.map((item,index) => { 
-          return (
+      { data.text.map((item,index) => {
+        return (
+          
             <div key={index}>
-              <li>
+              <li style={{listStyle:"none"}}>
                 <h1 onClick={()=>{navigate(`/list/${item.id}`)}}>{item.Heading}</h1>
               </li>
             </div>
           );
         })}
       </ul>
+      <button  onClick={()=>navigate("/")}>+ new Blog</button>
     </div>
+  
   );
 };
 
 export default List;
+// {data.text.map((item,index) => { 
+//   return (

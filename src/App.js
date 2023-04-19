@@ -9,7 +9,7 @@ import Display from './Components/Display';
 function App() {
 
   
-  const[createText,setCreateText]=useState('')
+  const[createText,setCreateText]=useState([])
  
 const state={
   text:createText,
