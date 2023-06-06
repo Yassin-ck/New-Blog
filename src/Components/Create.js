@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, {  useContext, useRef } from "react";
 import Context from "../Context/Context";
 import { useNavigate } from "react-router-dom";
 import "./create.css"
@@ -13,12 +13,12 @@ const Create = () => {
     
     const Heading = inputRef.current.heading.value;
     const Blog = inputRef.current.blog.value;
-    const id=Math.floor(Math.random()*1000)
-    setText([...text,{Heading, Blog ,id}])
-   navigate("/list"); 
+    // const id=Math.floor(Math.random()*1000)
+    setText([...text,{Heading, Blog }])
+    navigate("/list"); 
   }
-  
-
+  console.warn(text)
+ 
   return (
     <div>
       <form ref={inputRef} onSubmit={(e) => e.preventDefault()}>
@@ -34,7 +34,7 @@ const Create = () => {
         <button onClick={handleSubmit}  >Submit</button>
       </form>
 
-      <button   onClick={()=>navigate('/list')}>List</button>
+      {text[0] == null ? null:<button  onClick={()=>navigate('/list')}>List</button>}
     </div>
   );
 };

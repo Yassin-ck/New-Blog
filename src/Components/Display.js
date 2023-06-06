@@ -31,16 +31,19 @@ import { useParams } from "react-router-dom";
 
 const Display = () => {
   const data = useContext(Context);
+  const {text} = data
   const { id } = useParams();
+console.log(data.text);
+const filteredData = text[parseInt(id)]
 
+console.log(filteredData);
+  // const filteredData = data.text.filter((item) => item.id === parseInt(id));
 
-  const filteredData = data.text.filter((item) => item.id === parseInt(id));
-  
-
+let y =[filteredData]
   return (
     <div>
-      {filteredData.map((item) => (
-        <div key={item.id}>
+      {y.map((item,index) => (
+        <div key={index}>
           <h1>{item.Heading}</h1>
           <p>{item.Blog}</p>
         </div>
